@@ -22,35 +22,23 @@ UINavigationControllerDelegate {
         super.viewDidLoad()
         print("sss")
         buttonInit()
-        self.we.autocapitalizationType = .AllCharacters
-        self.down.autocapitalizationType = .AllCharacters
       //  bgImage.clipsToBounds = true
         cam.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         share.enabled = false
-      
+        self.subscribeToKeyboardNotifications()
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-          self.subscribeToKeyboardNotifications()
-    }
+
     override func didReceiveMemoryWarning() {	
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func KeyboardWillHide(notification:NSNotification){
-        if (down.isFirstResponder()){
-            
-            self.view.frame.origin.y += getKeyboardHeight(notification)
-        }
+    func keyboardWillHide(notification:NSNotification){
+
+            view.frame.origin.y += getKeyboardHeight(notification)
     }
     
-    func KeyboardWillShow(notification: NSNotification) {
-        print("keyboard shown ")
-        
-        if (down.isFirstResponder()){
+    func keyboardWillShow(notification: NSNotification) {
         self.view.frame.origin.y -= getKeyboardHeight(notification)
-        }
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -77,16 +65,12 @@ UINavigationControllerDelegate {
     }
     
     func subscribeToKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.KeyboardWillShow(_:)) , name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.KeyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name:
             UIKeyboardWillShowNotification, object: nil)
-        
-        NSNotificationCenter.defaultCenter().removeObserver(self, name:
-            UIKeyboardWillHideNotification, object: nil)
     }
 
     @IBAction func galleryPic(sender: AnyObject) {
@@ -97,9 +81,14 @@ UINavigationControllerDelegate {
         presentViewController(imagePicker, animated: true, completion: nil)
         
 
-        arrangeViews()
-        enableButtons(true)
-
+        self.view.bringSubviewToFront(we)
+        self.view.bringSubviewToFront(down)
+        self.view.sendSubviewToBack(bgImage)
+        share.enabled = true
+        we.enabled = true
+        down.enabled = true
+        we.textAlignment = NSTextAlignment.Center;
+        down.textAlignment = NSTextAlignment.Center;
     }
 
     @IBAction func camPciker(sender: AnyObject) {
@@ -108,23 +97,17 @@ UINavigationControllerDelegate {
         imagePicker.delegate = self
                 imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         presentViewController(imagePicker, animated: true, completion: nil)
-        enableButtons(true)
-    }
-    func enableButtons(cond: Bool){
         
-        we.enabled = cond
-        down.enabled = cond
-        share.enabled = cond
+        we.enabled = true
+        down.enabled = true
+        share.enabled = true
     }
     
-    func toolbarsSet(cond:  Bool){
-        self.tool.hidden = cond
-        self.topBar.hidden = cond
-    }
     func generateMemedImage() -> UIImage {
         
         // TODO: Hide toolbar and navbar
-        toolbarsSet(true)
+        self.tool.hidden = true
+        self.topBar.hidden = true
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawViewHierarchyInRect(self.view.frame,
@@ -134,7 +117,8 @@ UINavigationControllerDelegate {
         UIGraphicsEndImageContext()
         
         // TODO:  Show toolbar and navbar
-        toolbarsSet(false)
+        self.tool.hidden = false
+        self.topBar.hidden = false
         return memedImage
     }
     
@@ -167,14 +151,6 @@ UINavigationControllerDelegate {
         
         presentViewController(nextController, animated: true, completion: nil)
     }
-    func arrangeViews(){
-        we.textAlignment = NSTextAlignment.Center;
-        down.textAlignment = NSTextAlignment.Center;
-        self.view.bringSubviewToFront(tool)
-        self.view.bringSubviewToFront(we)
-        self.view.bringSubviewToFront(down)
-        self.view.sendSubviewToBack(bgImage)
-    }
     func buttonInit(){
         we.delegate = self
         we.defaultTextAttributes = [
@@ -184,7 +160,8 @@ UINavigationControllerDelegate {
             NSStrokeWidthAttributeName : -2
         ]
         down.delegate = self
-
+        we.textAlignment = NSTextAlignment.Center;
+        down.textAlignment = NSTextAlignment.Center;
         down.defaultTextAttributes = [
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 20)!,
@@ -194,14 +171,20 @@ UINavigationControllerDelegate {
         we.text = "TOP"
         down.text = "DOWN"
         
-
-        arrangeViews()
-        enableButtons(false)
+        we.textAlignment = NSTextAlignment.Center;
+        down.textAlignment = NSTextAlignment.Center;
+        
+        self.view.bringSubviewToFront(tool)
+        self.view.bringSubviewToFront(we)
+        self.view.bringSubviewToFront(down)
+        self.view.sendSubviewToBack(bgImage)
+        we.enabled = false
+        down.enabled = false
+        share.enabled = false
         }
     func save(im: UIImage) {
         //Create the meme
-    let meme = MemeStruct(top: we.text!,bottom:down.text!, Image:bgImage.image!, memeImage: im)
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        _ = MemeStruct(top: we.text!,bottom:down.text!, Image:bgImage.image!, memeImage: im)
     }
 
 }

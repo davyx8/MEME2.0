@@ -15,7 +15,6 @@
 		8C5F7D3C1D72E238000E67FF /* MEMETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5F7D3B1D72E238000E67FF /* MEMETests.swift */; };
 		8C5F7D471D72E238000E67FF /* MEMEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5F7D461D72E238000E67FF /* MEMEUITests.swift */; };
 		8C5F7D551D73513A000E67FF /* MemeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5F7D541D73513A000E67FF /* MemeStruct.swift */; };
-		AE512DA41D86E39B0062E826 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE512DA31D86E39B0062E826 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		8C5F7D461D72E238000E67FF /* MEMEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEMEUITests.swift; sourceTree = "<group>"; };
 		8C5F7D481D72E238000E67FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C5F7D541D73513A000E67FF /* MemeStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemeStruct.swift; path = ../MemeStruct.swift; sourceTree = "<group>"; };
-		AE512DA31D86E39B0062E826 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +79,6 @@
 		8C5F7D171D72E237000E67FF = {
 			isa = PBXGroup;
 			children = (
-				AE512DA31D86E39B0062E826 /* Images.xcassets */,
 				8C5F7D221D72E237000E67FF /* MEME */,
 				8C5F7D3A1D72E238000E67FF /* MEMETests */,
 				8C5F7D451D72E238000E67FF /* MEMEUITests */,
@@ -239,7 +236,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C5F7D311D72E237000E67FF /* LaunchScreen.storyboard in Resources */,
-				AE512DA41D86E39B0062E826 /* Images.xcassets in Resources */,
 				8C5F7D291D72E237000E67FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,14 +406,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MEME/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yo.MEME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -425,14 +417,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MEME/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yo.MEME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
