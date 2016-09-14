@@ -36,7 +36,7 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="iYW-bI-3br">
-                                <rect key="frame" x="20" y="106" width="640" height="20"/>
+                                <rect key="frame" x="20" y="86" width="560" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="TOP">
                                         <attributes>
@@ -49,15 +49,15 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JQP-nE-PSv">
-                                <rect key="frame" x="20" y="34" width="640" height="600"/>
+                                <rect key="frame" x="20" y="34" width="560" height="532"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="DOWN" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0h9-C8-89Y">
-                                <rect key="frame" x="20" y="523" width="640" height="17"/>
+                                <rect key="frame" x="20" y="455" width="560" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ObI-6P-CXE" userLabel="Toolbarx">
-                                <rect key="frame" x="6" y="559" width="592" height="44"/>
+                                <rect key="frame" x="0.0" y="507" width="592" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="m3v-Ef-sT4"/>
                                     <barButtonItem systemItem="camera" id="llx-e4-EaQ">
@@ -77,31 +77,43 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JQP-nE-PSv" firstAttribute="top" secondItem="iYW-bI-3br" secondAttribute="bottom" constant="-92" id="0hX-cV-U6E"/>
+                            <constraint firstItem="JQP-nE-PSv" firstAttribute="top" secondItem="iYW-bI-3br" secondAttribute="bottom" constant="-72" id="0hX-cV-U6E"/>
+                            <constraint firstAttribute="trailing" secondItem="ObI-6P-CXE" secondAttribute="trailing" constant="8" id="6ce-5J-TvG"/>
                             <constraint firstAttribute="centerY" secondItem="JQP-nE-PSv" secondAttribute="centerY" constant="-34" id="7N9-qE-6qF"/>
-                            <constraint firstAttribute="centerX" secondItem="JQP-nE-PSv" secondAttribute="centerX" constant="-23" id="8Rn-Lz-6se"/>
+                            <constraint firstAttribute="centerX" secondItem="JQP-nE-PSv" secondAttribute="centerX" constant="-10" id="8Rn-Lz-6se"/>
                             <constraint firstItem="wgM-sG-Pgo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9yi-o2-WWo"/>
                             <constraint firstItem="iYW-bI-3br" firstAttribute="centerX" secondItem="JQP-nE-PSv" secondAttribute="centerX" id="B7d-Dy-jEA"/>
                             <constraint firstItem="ObI-6P-CXE" firstAttribute="centerX" secondItem="wgM-sG-Pgo" secondAttribute="centerX" constant="100" id="D7x-bZ-Z1E"/>
-                            <constraint firstItem="wgM-sG-Pgo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="DOl-7M-46D"/>
-                            <constraint firstItem="ObI-6P-CXE" firstAttribute="top" secondItem="0h9-C8-89Y" secondAttribute="bottom" constant="19" id="Kjw-f5-6OS"/>
+                            <constraint firstItem="wgM-sG-Pgo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="15" id="DOl-7M-46D"/>
+                            <constraint firstAttribute="bottom" secondItem="JQP-nE-PSv" secondAttribute="bottom" constant="34" id="G17-0w-nzs"/>
+                            <constraint firstAttribute="trailing" secondItem="JQP-nE-PSv" secondAttribute="trailing" constant="20" id="H1F-En-jm8"/>
+                            <constraint firstItem="ObI-6P-CXE" firstAttribute="top" secondItem="0h9-C8-89Y" secondAttribute="bottom" constant="35" id="Kjw-f5-6OS"/>
                             <constraint firstItem="wgM-sG-Pgo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="N4n-vY-6gH"/>
                             <constraint firstItem="ObI-6P-CXE" firstAttribute="width" secondItem="wgM-sG-Pgo" secondAttribute="width" id="RNZ-2t-Mb6"/>
+                            <constraint firstItem="JQP-nE-PSv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="14" id="THS-a1-lly"/>
                             <constraint firstItem="0h9-C8-89Y" firstAttribute="width" secondItem="JQP-nE-PSv" secondAttribute="width" id="UGt-vB-pAf"/>
                             <constraint firstItem="0h9-C8-89Y" firstAttribute="centerX" secondItem="JQP-nE-PSv" secondAttribute="centerX" id="WWF-Rw-599"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ObI-6P-CXE" secondAttribute="bottom" constant="5" id="XrZ-tn-Aly"/>
                             <constraint firstItem="iYW-bI-3br" firstAttribute="width" secondItem="JQP-nE-PSv" secondAttribute="width" id="Xtv-5g-h6R"/>
-                            <constraint firstItem="JQP-nE-PSv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="40" id="YT3-v1-wnE"/>
+                            <constraint firstItem="ObI-6P-CXE" firstAttribute="top" secondItem="0h9-C8-89Y" secondAttribute="bottom" constant="35" id="Y5Q-te-YKo"/>
+                            <constraint firstItem="JQP-nE-PSv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="YT3-v1-wnE"/>
                             <constraint firstItem="JQP-nE-PSv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="YzN-bx-Wk2"/>
                             <constraint firstItem="0h9-C8-89Y" firstAttribute="top" secondItem="JQP-nE-PSv" secondAttribute="bottom" constant="-111" id="d2u-Vc-yQ4"/>
+                            <constraint firstItem="JQP-nE-PSv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="o22-bb-DBZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ObI-6P-CXE" secondAttribute="trailing" id="pxV-ig-QOy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wgM-sG-Pgo" secondAttribute="trailing" constant="-16" id="q4K-FJ-QeZ"/>
                             <constraint firstItem="0h9-C8-89Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qP0-bv-j1Z"/>
-                            <constraint firstItem="ObI-6P-CXE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-14" id="sfh-Lt-VzV"/>
+                            <constraint firstItem="ObI-6P-CXE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="sfh-Lt-VzV"/>
+                            <constraint firstItem="JQP-nE-PSv" firstAttribute="centerX" secondItem="0h9-C8-89Y" secondAttribute="centerX" id="uQM-wE-Zte"/>
+                            <constraint firstItem="ObI-6P-CXE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uVD-1u-sS4"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="DOl-7M-46D"/>
+                                <exclude reference="7N9-qE-6qF"/>
                                 <exclude reference="8Rn-Lz-6se"/>
+                                <exclude reference="YT3-v1-wnE"/>
+                                <exclude reference="YzN-bx-Wk2"/>
                                 <exclude reference="D7x-bZ-Z1E"/>
                                 <exclude reference="pxV-ig-QOy"/>
                             </mask>

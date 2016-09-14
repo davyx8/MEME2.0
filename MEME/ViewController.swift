@@ -90,25 +90,26 @@ UINavigationControllerDelegate {
     }
 
     @IBAction func galleryPic(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion: nil)
-        
-
-        arrangeViews()
-        enableButtons(true)
+        pick(true)
 
     }
-
-    @IBAction func camPciker(sender: AnyObject) {
-   
+    
+    func pick(type: Bool){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-                imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        if(type){
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        else {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        }
         presentViewController(imagePicker, animated: true, completion: nil)
+        arrangeViews()
         enableButtons(true)
+    }
+    
+    @IBAction func camPciker(sender: AnyObject) {
+     pick(false)
     }
     func enableButtons(cond: Bool){
         
@@ -175,26 +176,22 @@ UINavigationControllerDelegate {
         self.view.bringSubviewToFront(down)
         self.view.sendSubviewToBack(bgImage)
     }
+  let memeTextAttributes = [
+    NSForegroundColorAttributeName : UIColor.whiteColor(),
+    NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 20)!,
+    NSStrokeColorAttributeName : UIColor.blackColor(),
+    NSStrokeWidthAttributeName : -2
+    ]
+    func stylizeTextField(textField: UITextField) {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.delegate = self
+        
+    }
     func buttonInit(){
-        we.delegate = self
-        we.defaultTextAttributes = [
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 20)!,
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSStrokeWidthAttributeName : -2
-        ]
-        down.delegate = self
-
-        down.defaultTextAttributes = [
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 20)!,
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSStrokeWidthAttributeName : -2
-        ]
+        stylizeTextField(we)
+        stylizeTextField(down)
         we.text = "TOP"
         down.text = "DOWN"
-        
-
         arrangeViews()
         enableButtons(false)
         }
