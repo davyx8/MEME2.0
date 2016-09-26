@@ -161,6 +161,7 @@ UINavigationControllerDelegate {
         nextController.completionWithItemsHandler = { activity, success, items, error in
             
             if(success) {
+                print("works")
                 self.save(im)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
@@ -168,6 +169,7 @@ UINavigationControllerDelegate {
         
         presentViewController(nextController, animated: true, completion: nil)
     }
+    
     func arrangeViews(){
         we.textAlignment = NSTextAlignment.Center;
         down.textAlignment = NSTextAlignment.Center;
@@ -178,7 +180,7 @@ UINavigationControllerDelegate {
     }
   let memeTextAttributes = [
     NSForegroundColorAttributeName : UIColor.whiteColor(),
-    NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 20)!,
+    NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
     NSStrokeColorAttributeName : UIColor.blackColor(),
     NSStrokeWidthAttributeName : -2
     ]
@@ -197,8 +199,11 @@ UINavigationControllerDelegate {
         }
     func save(im: UIImage) {
         //Create the meme
-    let meme = MemeStruct(top: we.text!,bottom:down.text!, Image:bgImage.image!, memeImage: im)
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        let meme = MemeStruct(top: we.text!,bottom:down.text!, Image:self.bgImage.image!, memeImage: generateMemedImage()
+)
+        
+        let x  = UIApplication.sharedApplication().delegate as! AppDelegate
+        x.memes.append(meme)
     }
 
 }
